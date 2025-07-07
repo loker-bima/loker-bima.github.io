@@ -9,7 +9,7 @@ function MyApplications() {
   useEffect(() => {
     if (user?.id) {
       axios
-        .get(`http://localhost:5000/api/jobs/applications/user/${user.id}`)
+        .get(`https://lokerbima.vercel.app/api/jobs/applications/user/${user.id}`)
         .then((res) => setApplications(res.data))
         .catch((err) => console.error(err));
     }

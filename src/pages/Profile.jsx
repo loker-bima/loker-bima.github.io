@@ -7,7 +7,7 @@ function Profile() {
   const userData = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/users/${userData.id}`)
+    axios.get(`https://lokerbima.vercel.app/api/users/${userData.id}`)
       .then(res => setUser(res.data))
       .catch(err => console.error(err));
   }, [userData.id]);
@@ -21,7 +21,7 @@ function Profile() {
           <img
             src={
               user.photo
-                ? `http://localhost:5000/uploads/users/${user.photo}`
+                ? `https://lokerbima.vercel.app/uploads/users/${user.photo}`
                 : "https://via.placeholder.com/150"
             }
             alt="Profile"

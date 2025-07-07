@@ -12,7 +12,7 @@ function JobDetail() {
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/jobs");
+        const res = await axios.get("https://lokerbima.vercel.app/api/jobs");
         const selected = res.data.find((j) => j.id.toString() === id);
         setJob(selected);
       } catch (err) {
@@ -26,7 +26,7 @@ function JobDetail() {
   const handleApply = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/jobs/apply", {
+      await axios.post("https://lokerbima.vercel.app/api/jobs/apply", {
         job_id: job.id,
         applicant_id: user.id,
         message,

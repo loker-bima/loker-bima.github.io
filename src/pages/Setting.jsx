@@ -11,7 +11,7 @@ function Setting() {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/users/${userData.id}`)
+    axios.get(`https://lokerbima.vercel.app/api/users/${userData.id}`)
       .then(res => setUser(res.data))
       .catch(err => console.error(err));
   }, []);
@@ -33,7 +33,7 @@ function Setting() {
     if (file) formData.append("photo", file);
 
     try {
-      await axios.put(`http://localhost:5000/api/users/${userData.id}`, formData);
+      await axios.put(`https://lokerbima.vercel.app/api/users/${userData.id}`, formData);
       alert("Profil berhasil diperbarui!");
       window.location.reload();
     } catch (err) {
@@ -48,7 +48,7 @@ const handlePasswordChange = (e) => {
 
 const submitChangePassword = async () => {
   try {
-    await axios.put(`http://localhost:5000/api/users/change-password/${userData.id}`, passwordForm);
+    await axios.put(`https://lokerbima.vercel.app/api/users/change-password/${userData.id}`, passwordForm);
     alert("Password berhasil diganti");
     setPasswordForm({ currentPassword: "", newPassword: "" });
   } catch (err) {
@@ -60,7 +60,7 @@ const handleDeleteAccount = async () => {
   if (!window.confirm("Yakin ingin menghapus akun ini? Tindakan ini tidak bisa dibatalkan!")) return;
 
   try {
-    await axios.delete(`http://localhost:5000/api/users/${userData.id}`);
+    await axios.delete(`https://lokerbima.vercel.app/api/users/${userData.id}`);
     alert("Akun berhasil dihapus");
     localStorage.removeItem("user");
     window.location.href = "/";
@@ -75,7 +75,7 @@ const handleDeleteAccount = async () => {
       <div className="card shadow-sm p-4">
         <div className="d-flex">
           <img
-            src={preview || (user.photo ? `http://localhost:5000/uploads/users/${user.photo}` : "https://via.placeholder.com/150")}
+            src={preview || (user.photo ? `https://lokerbima.vercel.app/uploads/users/${user.photo}` : "https://via.placeholder.com/150")}
             alt="Profile"
             className="rounded-circle me-4"
             width="120"

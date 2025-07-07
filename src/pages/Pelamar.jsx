@@ -19,11 +19,11 @@ function Pelamar() {
 
   const fetchApplicants = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/jobs/${jobId}/applicants`);
+      const res = await axios.get(`https://lokerbima.vercel.app/api/jobs/${jobId}/applicants`);
       setApplicants(res.data);
 
       // Ambil juga info job-nya (judul)
-      const jobRes = await axios.get(`http://localhost:5000/api/jobs/${jobId}`);
+      const jobRes = await axios.get(`https://lokerbima.vercel.app/api/jobs/${jobId}`);
       setJobTitle(jobRes.data.title);
     } catch (err) {
       console.error("Gagal memuat pelamar:", err);

@@ -14,7 +14,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", form);
+      const res = await axios.post("https://lokerbima.vercel.app/api/auth/login", form);
       const { token, user } = res.data;
 
       // Simpan ke localStorage

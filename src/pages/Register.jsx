@@ -20,7 +20,7 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", form);
+      const res = await axios.post("https://lokerbima.vercel.app/api/auth/register", form);
       setSuccess("Registrasi berhasil! Silakan login.");
       setError("");
       setTimeout(() => navigate("/login"), 2000);

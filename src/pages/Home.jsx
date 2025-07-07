@@ -14,7 +14,7 @@ function Home() {
   const fetchJobs = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("http://localhost:5000/api/jobs", {
+      const res = await axios.get("https://lokerbima.vercel.app/api/jobs", {
         params: {
           keyword,
           location,
@@ -32,7 +32,7 @@ function Home() {
   // Fetch categories from API
   const fetchCategories = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/categories");
+      const res = await axios.get("https://lokerbima.vercel.app/api/categories");
       setCategories(res.data);
     } catch (err) {
       console.error("Gagal memuat kategori:", err);

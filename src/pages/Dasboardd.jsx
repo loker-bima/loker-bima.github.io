@@ -39,7 +39,7 @@ const handleEdit = (job) => {
   const handleDelete = async (id) => {
     if (window.confirm("Yakin ingin menghapus lowongan ini?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/jobs/${id}`);
+        await axios.delete(`https://lokerbima.vercel.app/api/jobs/${id}`);
         fetchJobs();
       } catch (err) {
         console.error("Gagal menghapus lowongan:", err);
@@ -54,7 +54,7 @@ const handleEdit = (job) => {
 
   const fetchJobs = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/jobs");
+      const res = await axios.get("https://lokerbima.vercel.app/api/jobs");
       const jobsByCompany = res.data.filter((job) => job.company_id === company_id);
       setJobList(jobsByCompany);
     } catch (err) {
@@ -64,7 +64,7 @@ const handleEdit = (job) => {
 
   const fetchCategories = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/categories");
+      const res = await axios.get("https://lokerbima.vercel.app/api/categories");
       setCategories(res.data);
     } catch (err) {
       console.error("Gagal memuat kategori:", err);
@@ -77,9 +77,9 @@ const handleEdit = (job) => {
       const payload = { ...jobForm, company_id };
 
       if (jobForm.id) {
-        await axios.put(`http://localhost:5000/api/jobs/${jobForm.id}`, payload);
+        await axios.put(`https://lokerbima.vercel.app/api/jobs/${jobForm.id}`, payload);
       } else {
-        await axios.post("http://localhost:5000/api/jobs", payload);
+        await axios.post("https://lokerbima.vercel.app/api/jobs", payload);
       }
 
       setMessage("Lowongan berhasil disimpan!");
